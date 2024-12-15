@@ -247,10 +247,10 @@
     </a-scene>
 
 
-    <!--Scene for the fifth .mind file-->
+    <!--Scene for the eight .mind file-->
     <a-scene
-      id="scene5"
-      mindar-image="imageTargetSrc: ./targets5.mind; autoStart: true; showStats: false;"
+      id="scene8"
+      mindar-image="imageTargetSrc: ./targets8.mind; autoStart: true; showStats: false;"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       embedded
@@ -263,10 +263,11 @@
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      <a-entity mindar-image-target="targetIndex: 0" id="target5">
+      <a-entity mindar-image-target="targetIndex: 0" id="target8">
         <a-entity gltf-model="#model5" position="0 0 0"></a-entity>
       </a-entity>
     </a-scene>
+
     <!--Scene for the fifth .mind file-->
     <a-scene
       id="scene5"
@@ -298,6 +299,7 @@
         const scene5 = document.getElementById("scene5");
         const scene6 = document.getElementById("scene6");
         const scene7 = document.getElementById("scene7");
+        const scene8 = document.getElementById("scene8");
 
         // Show the first scene initially
         scene1.classList.add("active");
@@ -379,9 +381,20 @@
           console.log("Target 7 lost!");
         });
 
+        // Target 8 (Scene 8) event listeners
+        const target8 = document.getElementById("target8");
+        target8.addEventListener("targetFound", () => {
+          console.log("Target 8 found! Navigating to yet another page...");
+          window.location.href = "model8.html"; // Navigate to the eighth page
+        });
+
+        target8.addEventListener("targetLost", () => {
+          console.log("Target 8 lost!");
+        });
+
         // Logic to switch between scenes dynamically
         const switchToScene = (sceneToShow) => {
-          [scene1, scene2, scene3, scene4, scene5, scene6].forEach((scene) =>
+          [scene1, scene2, scene3, scene4, scene5, scene6, scene7, scene8].forEach((scene) =>
             scene.classList.remove("active")
           );
           sceneToShow.classList.add("active");
